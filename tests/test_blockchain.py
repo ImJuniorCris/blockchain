@@ -11,7 +11,7 @@ class BlockchainTestCase(TestCase):
         self.blockchain = Blockchain()
 
     def create_block(self, proof=123, previous_hash='abc'):
-        self.blockchain.new_block(proof, previous_hash)
+        self.blockchain.build_block(proof, previous_hash)
 
     def create_transaction(self, sender='a', recipient='b', amount=1):
         self.blockchain.new_transaction(
@@ -101,4 +101,4 @@ class TestHashingAndProofs(BlockchainTestCase):
         new_hash = hashlib.sha256(new_block_json).hexdigest()
 
         assert len(new_hash) == 64
-        assert new_hash == self.blockchain.hash(new_block)
+        assert new_hash == self.blockchain.hash_block(new_block)
