@@ -103,4 +103,5 @@ ENV/
 # PyCharm
 .idea/
 
+*.db
 node_modules/
